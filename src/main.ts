@@ -124,3 +124,58 @@ function appendColumnHeaders(headChef: Node, sets: Array<Array<any>>){
 
     
 }
+
+/**
+ * This function is much like the above functions, but uses proper HTML table elements rather than Divs. 
+ * 
+ */
+function appendSetLogicTable(container: Node, sets: Array<Array<any>>){
+    var table = document.createElement("table");
+    //We do it by rows.
+    //First row is a header row.
+    doHeaderRow{}
+    //Then, we add a row for each set other than the first one (to prevent self-interaction.)
+    //Failing that we just do a row for each set and leave the interaction cells for self-interaction blank.
+    for(var i:number = 0; i < sets.length; i++){
+        //We need a label for each set.
+        doLabel;
+        //Then we need a cell for each other set.
+        for(var j:number = 0; j < sets.length; j++){
+            doCell{
+                //if they're the same sodding set, don't bother!
+                var cell:Node = document.createElement("td");
+                if(!(j==i)){
+                    doItemInteractions{
+                        //will probably do this in a seperate function.
+                        //This is a smaller table in each cell. needs to be passed two sets based on i and j 
+                        //but can then figure it out from there.
+                        appendItemInteractionTable(cell,sets[i],sets[j])
+
+                    }
+                }
+                attachCell
+            }
+
+        }
+        attachRow
+
+    }
+    attachTable
+}
+
+function appendItemInteractionTable(container:Node, xSet:Array<any>,ySet:Array<any>){
+    var table:Node = document.createElement("table");
+    //again, we do it by rows.
+    for(var y:number = 0; y < ySet.length; y++){
+        var row:Element = document.createElement("tr");
+        row.className = "itemRow";
+        for(var x:number = 0; x < xSet.length; x++){
+            var cell:HTMLElement = document.createElement("td");
+            cell.className = "itemCell";
+            cell.innerText = xSet[x].toString() + "," + ySet[y].toString();
+            row.appendChild(cell);
+        }
+        table.appendChild(row);
+    }
+    container.appendChild(table);
+}
