@@ -1,0 +1,31 @@
+Notes for logic graph drawing:
+Going to do it via HTML for fun- like murdle.
+Need to have an element for every box, and then a larger element with thicker outlines for groupings.
+i CAN use unicode for emoji labels- should probably leave it up to the user to designate these emojis.
+Problem decomposition:
+Visual elements
+	HTML
+		Uses a grid (not a table! it's not a full grid!)
+		The grid needs to be able to use a coordinate system.
+			It needs to be able to use TWO, actually- one for the larger boxes, then one for individual relations.
+			I'm not quite sure of the specifics of doing this, but I'm sure I can figure it out!
+	Canvas
+		Potentially easier.
+		more one-way than HTML, but its easier to draw things.
+Internal logic
+	Undetermined number of variable sets
+		Sets can be of differing sizes
+			At declaration, these sets will have an unchanging size, so an Array can be used.
+		One set will be the Primary Set, which exists only on the top row. This changes not much for internal calculations, but needs to be taken into account for  UI.
+		To get the grid coordinate of a correlation, we use (set1 index + item1 index), (set2 index + item2 index).
+			!Potentially, we use nested coordinates: one x,y for the sets that are being correlated, then another x,y for the items being correlated.
+			
+Checklist:
+Read number of sets- done!
+	Draw large set boxes, nothing inside for now.
+Read number of items in each set
+	On entering number of sets, should pop up a bunch of input things for the user to input the size of each set.
+		They should be able to specify, ideally, the values of each element of each set.
+	Draw smaller set boxes
+	Adjust large box size to fit correct number of elements
+	Label rows and columns (using number letter pairs. number for set index, letter for item index.)

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    Graph Plotter
+  </title>
+  <script src="build/main.js"></script>
+  <script src="build/test.js"></script>
+</head>
+<link rel="stylesheet" href="styles/styles.css">
+
+<body>
+<div id="options">
+  <label for="setNum">Number of sets:</label><br>
+  <input type="number" name = "Number of sets" id="setNum" required><br>
+  <label for="setNum">Elements in each set:</label><br>
+  <input type="number" name = "Elements in each set" id="setSize" required ><br>
+
+  <button onclick="writeGrid(document.getElementById('tableHead'),getElementById('setNum').value)">Go</button><br>
+  <button onclick="fiveSetsOfFiveTest(document.getElementById('tableHead'));">
+    Test (5*5 set size,)
+  </button>
+</div>
+<div id="tableHead"></div>
+
+</body>
+</html>

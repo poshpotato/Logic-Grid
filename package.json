@@ -1,0 +1,21 @@
+{
+  "name": "logic-graph",
+  "version": "1.0.0",
+  "description": "Draws a graph (more of a table, really) representing sets and their logical correlations. Based off of",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "amateur",
+    "logic",
+    "table"
+  ],
+  "author": "Jebadiah Dudfield",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.6.3"
+  }
+}

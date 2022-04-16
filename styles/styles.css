@@ -1,0 +1,27 @@
+
+  .rowHeader{
+    /*For organizational purposes: doesn't actually have to look like anything.*/
+    display: table-row;
+  }
+  .itemCellDiv{
+    border: 1px ;
+    border-color:  #000;
+    border-style: solid;
+    width: 20px;
+    height: 20px;
+    display: table-cell;
+  }
+  .setCellDiv{
+    border: 3px;
+    border-color:  #000;
+    border-style: solid;
+    display: table-cell;
+  }
+  .rowLabelDiv{
+    width: 20px;
+    height: 20px;
+    display: table-cell;
+  }
+  .headDiv{
+    display: table-cell;
+  }
