@@ -33,7 +33,7 @@ function generateSetSizeInputs(setOptionsDiv: Node, setNum: number){
         //Put a little list below each element to contain the inputs.
         let elementList:HTMLOListElement = document.createElement("ol");
         elementList.start = 0;
-        sizeInput.onchange = (ev) => {appendElementInputs(elementList, parseInt((ev.currentTarget as HTMLInputElement).value)); console.log(ev.currentTarget)}
+        sizeInput.onchange = (ev) => {updateElementInputs(elementList, parseInt((ev.currentTarget as HTMLInputElement).value)); console.log(ev.currentTarget)}
 
         cell.appendChild(sizeInputLabel);
         //line break!
@@ -46,11 +46,44 @@ function generateSetSizeInputs(setOptionsDiv: Node, setNum: number){
     table.appendChild(row);
     setOptionsDiv.appendChild(table);
 }
-
-function appendElementInputs(containingList:HTMLOListElement, elementNum: number){
-    console.log(elementNum);
-    console.log(containingList)
-    for(let i:number = 0; i<elementNum; i++){
-        
+ 
+function updateElementInputs(containingList:HTMLOListElement, elementNum: number){
+    //Every time the set size is updated, we need to run checks and behave accordingly.
+    //1. check the size isn't negative or zero. Sets have to have normal sizes!
+    if(elementNum<=0){
+        //Just.. do nothing.
+        return;
     }
+    
+    //2. Check if the new size is larger or smaller than the current one:
+    if(!containingList.hasChildNodes||containingList.childElementCount<elementNum){
+        //If the size has increased OR there are no children:
+        //Add inputs until done.
+        while(containingList.childElementCount<elementNum){
+            appendElementInput(containingList);
+        }
+    }else if(containingList.childElementCount>elementNum){
+        //If the size has decreased:
+        while(containingList.childElementCount>elementNum){
+            containingList.removeChild(containingList.children[containingList.children.length-1])
+        }
+    }else{
+        //If the sizes are the same:
+        //Do nothing. This is fine.
+        return;
+    }
+    
+}
+
+function appendElementInput(containingList:HTMLOListElement){
+    //This goes inside the containing list, and the input goes inside this.
+    let listItem:HTMLLIElement = document.createElement("li");
+        
+    //input for element i:
+    let elementInput: HTMLInputElement = document.createElement("input");
+    elementInput.type = "text";
+    elementInput.size = 1;
+    elementInput.maxLength = 1;
+    listItem.appendChild(elementInput);
+    containingList.appendChild(listItem);
 }
