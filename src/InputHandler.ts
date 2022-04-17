@@ -11,9 +11,9 @@ function generateSetSizeInputs(setOptionsDiv: Node, setNum: number){
     }
     //Uses a table with a single row. Each row contains cells equal to setNum.
     //Each cell should contain a number input list of input elements
-    var table:HTMLTableElement = document.createElement("table");
+    let table:HTMLTableElement = document.createElement("table");
     table.className = "settingsTable";
-    var row:HTMLTableRowElement = document.createElement("tr");
+    let row:HTMLTableRowElement = document.createElement("tr");
     //for each set:
     for(let i:number = 0; i<setNum; i++){
         let cell:HTMLTableCellElement = document.createElement("td");
@@ -50,7 +50,7 @@ function generateSetSizeInputs(setOptionsDiv: Node, setNum: number){
 function appendElementInputs(containingList:HTMLOListElement, elementNum: number){
     console.log(elementNum);
     console.log(containingList)
-    for(var i:number = 0; i<elementNum; i++){
+    for(let i:number = 0; i<elementNum; i++){
         
     }
 }
