@@ -3,7 +3,7 @@
     /*For organizational purposes: doesn't actually have to look like anything.*/
     display: table-row;
   }
-  .itemCellDiv{
+  .itemCell{
     border: 1px ;
     border-color:  #000;
     border-style: solid;
@@ -11,17 +11,22 @@
     height: 20px;
     display: table-cell;
   }
-  .setCellDiv{
+  .setCell{
     border: 3px;
     border-color:  #000;
     border-style: solid;
     display: table-cell;
+    padding: 0px;
   }
-  .rowLabelDiv{
-    width: 20px;
-    height: 20px;
-    display: table-cell;
+  .setLogicTable{
+    border-collapse: collapse;
+    text-align: center;
   }
-  .headDiv{
-    display: table-cell;
+
+  .itemInteractionTable{
+    border-collapse: collapse;
+    text-align: center;
+    border-style: none;
   }
+
+  
