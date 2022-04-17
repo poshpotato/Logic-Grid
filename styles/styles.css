@@ -17,6 +17,7 @@
     border-style: solid;
     display: table-cell;
     padding: 0px;
+    font-family: 'Courier New', Courier, monospace
   }
   .setLogicTable{
     border-collapse: collapse;
