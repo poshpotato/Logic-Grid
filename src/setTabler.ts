@@ -6,15 +6,15 @@ function writeGrid(headChef: Node, items: number){
     while(headChef.hasChildNodes()){
         headChef.removeChild(headChef.childNodes[0]);
     }
-    for(var i = 1; i < items; i++){
+    for(let i = 1; i < items; i++){
         //for each row:
-        var row = document.createElement("div");
+        let row = document.createElement("div");
         row.className = "rowHeader";
         row.id = "rowHeader" + i;
         headChef.appendChild(row);
-        for(var j = 0; j < items; j++){
+        for(let j = 0; j < items; j++){
             //for each column in each row:
-            var cell = document.createElement("div");
+            let cell = document.createElement("div");
             cell.className = "cellDiv";
             cell.id = "x" + i + "y" + j;
             cell.innerText = i + "," + j;
@@ -30,7 +30,7 @@ function writeGrid(headChef: Node, items: number){
  * 
  */
 function appendSetLogicTable(container: Node, sets: Array<Array<any>>){
-    var table = document.createElement("table");
+    let table = document.createElement("table");
     table.className = "setLogicTable"
     //We do it by rows.
     //First row is a header row.
@@ -38,17 +38,17 @@ function appendSetLogicTable(container: Node, sets: Array<Array<any>>){
 
     //Then, we add rows
     //We just do a row for each set and leave the interaction cells for self-interaction blank.
-    for(var i:number = 0; i < sets.length; i++){
+    for(let i:number = 0; i < sets.length; i++){
         
-        var row:Node = document.createElement("tr");
+        let row:Node = document.createElement("tr");
         //We need a label for each set row.
-        var labelCell:HTMLElement = document.createElement("td");
+        let labelCell:HTMLElement = document.createElement("td");
         labelCell.innerText = i.toString();
         row.appendChild(labelCell);
         //Then we need a cell for each other set.
-        for(var j:number = 0; j < sets.length; j++){
+        for(let j:number = 0; j < sets.length; j++){
             //if they're the same sodding set, don't bother!
-            var cell:HTMLElement = document.createElement("td");
+            let cell:HTMLElement = document.createElement("td");
             cell.className = "setCell";
             if(!(j==i)){
                 //interactions between sets happen here
@@ -65,11 +65,11 @@ function appendSetLogicTable(container: Node, sets: Array<Array<any>>){
 }
 
 function appendSetTableHeaderRow(table:Node, sets: Array<Array<any>>){
-    var row:Node = document.createElement("tr");
+    let row:Node = document.createElement("tr");
     //first, an empty cell for the top left corner.
     row.appendChild(document.createElement("td"));
-    for(var i:number = 0; i<sets.length; i++){
-        var cell:HTMLElement = document.createElement("td");
+    for(let i:number = 0; i<sets.length; i++){
+        let cell:HTMLElement = document.createElement("td");
         cell.innerText = i.toString();
         row.appendChild(cell);
     }
@@ -83,14 +83,14 @@ function appendSetTableHeaderRow(table:Node, sets: Array<Array<any>>){
  * @param ySet The set that lies across the y axis (the left)
  */
 function appendItemInteractionTable(container:Node, xSet:Array<any>,ySet:Array<any>){
-    var table = document.createElement("table");
+    let table = document.createElement("table");
     table.className = "itemInteractionTable";
     //again, we do it by rows.
-    for(var y:number = 0; y < ySet.length; y++){
-        var row:Element = document.createElement("tr");
+    for(let y:number = 0; y < ySet.length; y++){
+        let row:Element = document.createElement("tr");
         row.className = "itemRow";
-        for(var x:number = 0; x < xSet.length; x++){
-            var cell:HTMLElement = document.createElement("td");
+        for(let x:number = 0; x < xSet.length; x++){
+            let cell:HTMLElement = document.createElement("td");
             cell.className = "itemCell";
             cell.innerText = xSet[x].toString() + "," + ySet[y].toString();
             row.appendChild(cell);
